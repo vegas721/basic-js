@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../lib');
+const { NotImplementedError } = require("../lib");
 
 /**
  * The MAC-48 address is six groups of two hexadecimal digits (0 to 9 or A to F),
@@ -14,11 +14,20 @@ const { NotImplementedError } = require('../lib');
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
-function isMAC48Address(/* n */) {
-  // Remove line below and write your code here
-  throw new NotImplementedError('Not implemented');
+function isMAC48Address(n) {
+  mac = "0123456789abcdefABCDEF";
+  isMac = true;
+  const arr = String(n).toUpperCase().split("-");
+  for (let item of arr) {
+    for (let i = 0; i < item.length; i++) {
+      if (!mac.includes(item[i])) {
+        return false;
+      }
+    }
+  }
+  return isMac;
 }
 
 module.exports = {
-  isMAC48Address
+  isMAC48Address,
 };
